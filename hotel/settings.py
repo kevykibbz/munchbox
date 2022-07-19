@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.twitter', #social app
     'allauth.socialaccount.providers.github', #social app
     'django_cleanup.apps.CleanupConfig',
-    'import_export',
 ]
 
 MIDDLEWARE = [
