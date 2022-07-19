@@ -19,7 +19,7 @@ DEBUG = False
 
 SITE_ID=2 
 
-ALLOWED_HOSTS = ['my24loan.herokuapp.com','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['munchybox.herokuapp.com','localhost','127.0.0.1']
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
