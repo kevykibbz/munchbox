@@ -1,0 +1,121 @@
+{% extends 'manager/base.html' %}
+{% load static %}
+{% block body %}
+
+<section id="page-title">
+	<div class="container">
+		<h2>Contact us</h2>
+		<div class="breadcrumb text-left">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page"><a href="{% url 'contact us' %}">Contact Us</a></li>
+				</ol>
+			</nav>
+		</div>
+	</div>
+</section>
+
+<section id="contact">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-lg-5 m-b-30">
+				<div class="heading-text heading-plain">
+					<h4>Get in touch</h4>
+				</div>
+
+				<div>
+					<p><a href="tel:{{obj.phone}}"><i class="fa fa-phone m-r-5"></i> {{obj.phone}}</a></p>
+					<p><a href="mailto:{{obj.site_email}}"><i class="fa fa-envelope m-r-5"></i> {{obj.site_email}}</a></p>
+					<p><i class="fa fa-map-marker m-r-5"></i> Registered Office: {{obj.address}}</p>
+				</div>
+              
+				<div class="social-icons social-icons-colored social-icons-rounded float-left">
+					<h6>Follow us:</h6>
+					<ul>
+					  <li class="social-facebook"><a href="{{obj.facebook}}" target="_blank" rel="nofollow"><i class="fab fa-facebook-f"></i></a></li>
+
+					  <li class="social-instagram"><a href="{{obj.instagram}}" target="_blank" rel="nofollow"><i class="fab fa-instagram"></i></a></li>
+
+					  <li class="social-twitter"><a href="{{obj.twitter}}" target="_blank" rel="nofollow"><i class="fab fa-twitter"></i></a></li>
+
+					  <li class="social-linkedin"><a href="{{obj.linkedin}}" target="_blank" rel="nofollow"><i class="fab fa-linkedin"></i></a></li>
+
+					  <li class="social-whatsapp"><a href="{{obj.whatsapp}}" target="_blank" rel="nofollow"><i class="fab fa-whatsapp"></i></a></li>
+
+					  <li class="social-youtube"><a href="{{obj.youtube}}" target="_blank" rel="nofollow"><i class="fab fa-youtube"></i></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="form-wrapper col-lg-7 position-relative">
+				<div class="load-overlay" style="display:none">
+                    <span class="overlay-close btn-remove" title="close overlay"><i class="fa fa-close"></i></span>
+                    <div class="overlay">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="loader-container">
+                                <div class="loader">
+                                    <svg class="circular" viewBox="25 25 50 50">
+                                    <circle class="path" cx="50" cy="50" r="10" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                                    </svg>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<form action="" id="submitForm" class="form-horizontal ContactForm" novalidate="novalidate" method="post" accept-charset="utf-8">
+					{% csrf_token %}
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label class="text-dark" for="fullname">Full Name *</label>
+							{{form.name}}
+							<div class="help-block font-small-3"></div>
+						</div>
+						<div class="form-group col-md-6">
+							<label class="text-dark" for="email">Mobile no *</label>
+							{{form.phone}}
+							<div class="help-block font-small-3"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label class="text-dark" for="subject">Subject</label>
+							{{form.subject}}
+							<div class="help-block font-small-3"></div>
+						</div>
+						<div class="form-group col-md-6">
+							<label class="text-dark" for="email">Email id *</label>
+							{{form.email}}
+							<div class="help-block font-small-3"></div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="text-dark" for="message">Message *</label>
+						{{form.message}}
+						<div class="help-block font-small-3"></div>
+					</div>
+
+					<div class="form-group">
+						<div class="custom-control custom-checkbox">
+							<input type="checkbox" aria-required="true" name="conditions" id="conditions" class="custom-control-input" value="1" required>
+							<label class="custom-control-label" for="conditions"><small>By proceeding, you agree to the <a href="{% url 'terms and conditions' %}" target="_blank">Terms of Use</a>, <a href="{% url 'privacy policy' %}" target="_blank">Privacy Policy</a> and this consent will override any registration by me for DNC / NDNC.</small></label>
+							<div class="help-block font-small-3"></div>
+						</div>
+					</div>
+
+					<div class="text-center">
+						<button type="submit" id="submit-btn" class="btn btn-primary">Send Message</button>
+					</div>
+				</form> 
+			</div>
+
+		</div>
+	</div>
+</section>
+<section class="no-padding">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14876.641049686776!2d72.8148831!3d21.2254926!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5776ef783dc3b357!2smy24loan!5e0!3m2!1sen!2sin!4v1628322188832!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</section>
+{% endblock %}
